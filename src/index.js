@@ -13,11 +13,7 @@ class App extends React.Component {
     );
   }
 
-  componentDidUpdate() {
-    console.log('Component rerendered');
-  }
-
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>{this.state.errorMessage}</div>;
     }
@@ -27,8 +23,12 @@ class App extends React.Component {
     }
 
     if (!this.state.errorMessage && !this.state.lat) {
-      return <LoadingDisplay />;
+      return <LoadingDisplay message="Please accept location request" />;
     }
+  }
+
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 
