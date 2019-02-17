@@ -5,10 +5,9 @@ class SearchBar extends React.Component {
     searchInput: ''
   };
 
-  onInputChange(event) {
+  onInputChange = event => {
     this.setState({ searchInput: event.target.value });
-    console.log(event.target.value);
-  }
+  };
 
   render() {
     return (
@@ -17,7 +16,12 @@ class SearchBar extends React.Component {
           <div className="field">
             <label htmlFor="imageS earch">
               Image Search
-              <input id="imageSearch" type="text" onChange={this.onInputChange} />
+              <input
+                id="imageSearch"
+                type="text"
+                value={this.state.searchInput}
+                onChange={this.onInputChange}
+              />
             </label>
           </div>
         </form>
