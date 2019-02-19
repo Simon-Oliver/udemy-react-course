@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import ImageList from './ImageList';
+import unsplash from '../api/unsplash';
 
 class App extends React.Component {
   state = {
@@ -9,14 +10,9 @@ class App extends React.Component {
   };
 
   onSearchSubmit = async searchInput => {
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
-      params: { query: searchInput },
-      headers: {
-        Authorization: `Authorization: Client-ID ${process.env.REACT_APP_Access_Key_KEY}`
-      }
+    const response = await unsplash.get('https://api.unsplash.com/search/photos', {
+      params: { query: searchInput }
     });
-
-    console.log(response.data.results);
 
     this.setState({ images: response.data.results });
   };
