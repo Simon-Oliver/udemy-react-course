@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
       <div className="ui container">
         <div className="ui input">
           <input
-            value={this.state.searchTerm}
+            value={this.state.searchTerm} // Controlled Component?
             type="text"
             placeholder="Search..."
             onChange={this.onInputChange}
