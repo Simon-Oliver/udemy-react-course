@@ -1,8 +1,8 @@
 import React from 'react';
 
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, onVideoSelect }) => {
   return (
-    <div className="ui items segment">
+    <div className="ui segment items" onClick={() => onVideoSelect(video)}>
       <div className="item">
         <a className="ui tiny image">
           <img src={video.snippet.thumbnails.medium.url} />
