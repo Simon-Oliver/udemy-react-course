@@ -31,4 +31,10 @@ return {
 }
 }
 
-console.log('Hello');
+// Reducers
+const claimsHistory = (oldListOffClaims, action) => {
+if(action.type === 'CREAT_CLAIM'){
+return [...oldListOffClaims, action.payload]
+}
+return oldListOffClaims;
+}
