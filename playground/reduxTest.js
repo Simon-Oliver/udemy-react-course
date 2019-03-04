@@ -1,4 +1,4 @@
-const { connect } = require('redux');
+const { createStore, combineReducers } = require('redux');
 
 console.clear();
 
@@ -58,3 +58,17 @@ const policies = (listOfPolicies = [], action) => {
   }
   return listOfPolicies;
 };
+
+const ourDepartments = combineReducers({
+  accounting,
+  claimsHistory,
+  policies
+});
+
+const store = createStore(ourDepartments);
+
+store.dispatch(createPolicy('Max', 20));
+store.dispatch(createPolicy('Alex', 50));
+store.dispatch(createPolicy('Rob', 200));
+
+console.log(store.getState());
