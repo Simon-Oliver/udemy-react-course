@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectSong } from '../actions';
-import SongDetail from './SongDetail';
 
 class SongList extends Component {
   renderList() {
